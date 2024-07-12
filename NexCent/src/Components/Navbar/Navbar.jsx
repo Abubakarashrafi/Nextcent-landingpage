@@ -2,6 +2,7 @@ import React, {useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import Sidenav from "./Sidenav";
+import {Fade} from "react-awesome-reveal"
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
 
@@ -39,14 +40,16 @@ function Navbar() {
   return (
     <>
       <nav>
-        <div className=" fixed min-w-full bg-white">
 
-        <div className="flex m-2 justify-between items-center md:px-6 md:py-2 py-1" >
+        <div className=" fixed min-w-full bg-white z-10">
+
+        <Fade cascade damping={0.2} triggerOnce>
+        <div className="flex m-2 md:m-1 justify-between items-center md:px-6 md:py-2 py-1" >
           <div className="flex gap-x-1 items-center"> 
             <img src="logo.png" alt="" className="w-9 h-6"  />
             <p className="text-gray-800 text-2xl   font-bold">Nexcent</p>
           </div>
-          <div className=" md:flex gap-8 hidden ">
+          <div className=" md:flex gap-6 hidden ">
             {NavTab.map((tab) => (
               <div key={tab.id} >
                     <a className="hover:border-b-2 font-semibold border-primary" href={tab.link}>{tab.name}</a>
@@ -63,12 +66,13 @@ function Navbar() {
               <IoMdClose className="cursor-pointer" onClick={toggleMenu} />
             ) : (
               <GiHamburgerMenu
-                className="cursor-pointer"
-                onClick={toggleMenu}
+              className="cursor-pointer"
+              onClick={toggleMenu}
               />
             )}
           </div>
         </div>
+              </Fade>
         </div>
         <Sidenav showMenu={showMenu}/>
       </nav>

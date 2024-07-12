@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../Card"
 import AnalyticsTab from "./AnalyticsTab";
-
+import { Fade } from "react-awesome-reveal";
 const clientIcon = [
   {
     id: 1,
@@ -28,7 +28,9 @@ const clientIcon = [
 function Client() {
   return (
     <>
+
       <section className="mt-10 ">
+    <Fade casade direction="up"  delay={300} duration={1000} triggerOnce >
         <div className="text-center  space-y-2">
           <h2 className="text-4xl font-semibold text-[#4D4D4D]">Our Clients</h2>
           <p className="text-pretty text-gray-500">
@@ -43,8 +45,11 @@ function Client() {
             </div>
           ))}
         </div>
+              </Fade>
       </section>
       <div className=" mt-10">
+        <Fade  cascade  direction="up" duration={1000} triggerOnce>
+
         <div className="flex flex-col items-center space-y-2  text-center">
           <p className="text-2xl sm:text-3xl max-w-md font-bold text-[#4D4D4D] text-pretty ml-2">Manage your entire community in a single system</p>
           <p className="text-gray-500">Who is Nextcent suitable for?</p>
@@ -52,7 +57,8 @@ function Client() {
           <div className="flex flex-col items-center sm:flex-row justify-around mt-10">
             <Card />
           </div>
-          <div className="mt-10">
+        </Fade>
+          <div className="mt-8">
             <AnalyticsTab/>
           </div>
       </div>
